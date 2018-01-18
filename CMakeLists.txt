@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
 project(octomap_msgs)
 
-find_package(catkin REQUIRED COMPONENTS message_generation geometry_msgs std_msgs)
+find_package(catkin REQUIRED COMPONENTS message_generation geometry_msgs std_msgs sensor_msgs)
 
 include_directories(include)
 
@@ -12,10 +12,10 @@ add_message_files(
 
 add_service_files(
   DIRECTORY srv
-  FILES GetOctomap.srv BoundingBoxQuery.srv
+  FILES GetOctomap.srv BoundingBoxQuery.srv InsertCloud.srv
 )
 
-generate_messages(DEPENDENCIES std_msgs geometry_msgs)
+generate_messages(DEPENDENCIES std_msgs geometry_msgs sensor_msgs)
 
 catkin_package(DEPENDS message_runtime geometry_msgs std_msgs
                INCLUDE_DIRS include
